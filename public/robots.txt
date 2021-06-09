@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://payments-psi.vercel.app
+
+# Sitemaps
+Sitemap: https://payments-psi.vercel.app/sitemap.xml
