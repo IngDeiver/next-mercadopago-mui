@@ -19,6 +19,7 @@ export default class PaymentForm extends React.Component {
       <Box m={5}>
         <Head>
           <title>Ingedeiver | mercado pago | demo</title>
+          <meta name="google-site-verification" content="Ut52bcyQ9SYhekHEYHJUQpTgc0Y0f5aPXVpHwqjFM1o" />
           <meta charset="utf-8"/>
           <meta name="description" content="Demo application with next.js and payment market to simulate payments."/>
           <meta name="keywords" content="deiver,mercadopago,next.js,demo"/>
