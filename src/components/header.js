@@ -30,8 +30,8 @@ const Header = () => {
             <ActiveLink  href="/">
               Home
             </ActiveLink>
-            <ActiveLink  href="/pay">
-              Princings
+            <ActiveLink  href="/pricings">
+              Pricings
             </ActiveLink>
           </nav>
         </Toolbar>

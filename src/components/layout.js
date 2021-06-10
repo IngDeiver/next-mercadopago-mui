@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import { ThemeProvider } from '@material-ui/core/styles';
 import theme from '../theme'
 
-const EXCLUDE_PAGES = ['/', '/pay']
+const EXCLUDE_PAGES = ['/', '/pricings']
 
 const Layout = ({ children }) => {
     const router = useRouter()

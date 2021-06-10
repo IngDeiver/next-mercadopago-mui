@@ -18,6 +18,8 @@ export default class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
+          {/* SDK MercadoPago.js V2 */}
+          <script src="https://sdk.mercadopago.com/js/v2"></script>
         </body>
       </Html>
     );
