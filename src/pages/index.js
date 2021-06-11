@@ -46,7 +46,7 @@ export default class PaymentForm extends React.Component {
               </Box>
               <Box color="gray" m={2} pb={2}>
                 <Typography variant="body1">
-                  To make payment by card I can use the following preba card:
+                To make the payment with a card you can use the following test card:
                 </Typography>
                 <Typography>
                   <strong>Credict card number: </strong>4013540682746260
