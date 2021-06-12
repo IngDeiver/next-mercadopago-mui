@@ -12,6 +12,7 @@ import {
   Divider,
   Container,
   Select,
+  Hidden,
 } from "@material-ui/core";
 import Head from "next/head";
 import { useRouter } from "next/router";
@@ -114,7 +115,7 @@ const Pay = ({ title, transaction_amount }) => {
     const body = {
       token,
       issuer_id: issuerId,
-      payment_method_id:String(paymentMethodId),
+      payment_method_id: String(paymentMethodId),
       transaction_amount: Number(amount),
       installments: Number(installments),
       description: `Pay ${title}`,
@@ -127,21 +128,22 @@ const Pay = ({ title, transaction_amount }) => {
       },
     };
 
-    axios.post("/api/process_payment", body, {
-      headers: {
-        'X-meli-session-id': MP_DEVICE_SESSION_ID,
-        'content-type': 'application/json'
-      }
-    })
-    .then(res => {
-      console.log(res)
-      setIsSubmiting(false)
-      setPaidOut(true)
-    })
-    .catch(err => {
-      console.error(err)
-      setIsSubmiting(false)
-    })
+    axios
+      .post("/api/process_payment", body, {
+        headers: {
+          "X-meli-session-id": MP_DEVICE_SESSION_ID,
+          "content-type": "application/json",
+        },
+      })
+      .then((res) => {
+        console.log(res);
+        setIsSubmiting(false);
+        setPaidOut(true);
+      })
+      .catch((err) => {
+        console.error(err);
+        setIsSubmiting(false);
+      });
   };
 
   function loadCardForm() {
@@ -245,7 +247,7 @@ const Pay = ({ title, transaction_amount }) => {
               <Typography variant="subtitle1">
                 <strong>Amount: </strong>${transaction_amount}
               </Typography>
-              <Typography variant="body2" align="center">
+              <Typography variant="body2">
                 This credit card is a test one, it does not have any type of
                 charge.
               </Typography>
@@ -306,84 +308,106 @@ const Pay = ({ title, transaction_amount }) => {
             />
 
             <Box display="flex" flexDirection="row">
-              <FormControl style={{ width: 50, marginRight: 10 }}>
-                <Select
-                  native
-                  onChange={(e) =>
-                    formik.setFieldValue("docType", e.target.value)
-                  }
-                  value={formik.values.docType}
-                  id="identificationType"
-                ></Select>
-              </FormControl>
-
-              <Box mt={1}>
-                <TextField
-                  size="small"
-                  variant="outlined"
-                  onChange={(e) =>
-                    formik.setFieldValue("docNumber", e.target.value)
-                  }
-                  value={formik.values.docNumber}
-                  inputProps={{
-                    id: "identificationNumber",
-                  }}
-                  error={
-                    formik.touched.docNumber && Boolean(formik.errors.docNumber)
-                  }
-                  helperText={
-                    formik.touched.docNumber && formik.errors.docNumber
-                  }
-                />
-              </Box>
+              <Grid container spacing={2}>
+                <Grid item xs={12} sm={2}>
+                  <Box width={{ xs: "100%" }}>
+                    <FormControl
+                      fullWidth
+                      //style={{ width: 50, marginRight: 10 }}
+                    >
+                      <Select
+                        native
+                        onChange={(e) =>
+                          formik.setFieldValue("docType", e.target.value)
+                        }
+                        value={formik.values.docType}
+                        id="identificationType"
+                      ></Select>
+                    </FormControl>
+                  </Box>
+                </Grid>
+                <Grid item xs={12} sm={10}>
+                  <Box mt={1}>
+                    <TextField
+                      size="small"
+                      variant="outlined"
+                      onChange={(e) =>
+                        formik.setFieldValue("docNumber", e.target.value)
+                      }
+                      value={formik.values.docNumber}
+                      inputProps={{
+                        id: "identificationNumber",
+                      }}
+                      error={
+                        formik.touched.docNumber &&
+                        Boolean(formik.errors.docNumber)
+                      }
+                      helperText={
+                        formik.touched.docNumber && formik.errors.docNumber
+                      }
+                    />
+                  </Box>
+                </Grid>
+              </Grid>
             </Box>
             <Box color="gray" my={2}>
               <Typography variant="h5">Card details</Typography>
               <Divider />
             </Box>
             <Box display="flex" flexDirection="row">
-              <Box>
-                <TextField
-                  fullWidth
-                  margin="dense"
-                  size="small"
-                  variant="outlined"
-                  type="number"
-                  placeholder="Card Number"
-                  label="Card Number"
-                  onChange={(e) =>
-                    formik.setFieldValue("number", e.target.value)
-                  }
-                  value={formik.values.number}
-                  onFocus={() => onFocus("number")}
-                  inputProps={{
-                    id: "cardNumber",
-                    ...secureInputCommonOptions,
-                  }}
-                  error={formik.touched.number && Boolean(formik.errors.number)}
-                  helperText={formik.touched.number && formik.errors.number}
-                />
-              </Box>
-              <Box mx={2}>
-                <TextField
-                  style={{ width: 100 }}
-                  margin="dense"
-                  size="small"
-                  variant="outlined"
-                  type="number"
-                  placeholder="CVC"
-                  label="CVC"
-                  onChange={(e) => formik.setFieldValue("cvc", e.target.value)}
-                  value={formik.values.cvc}
-                  onFocus={() => onFocus("cvc")}
-                  inputProps={{
-                    id: "securityCode",
-                    ...secureInputCommonOptions,
-                  }}
-                  error={formik.touched.cvc && Boolean(formik.errors.cvc)}
-                  helperText={formik.touched.cvc && formik.errors.cvc}
-                />
-              </Box>
+              <Grid container>
+                <Grid item xs={12} sm={6}>
+                  <Box>
+                    <TextField
+                      fullWidth
+                      margin="dense"
+                      size="small"
+                      variant="outlined"
+                      type="number"
+                      placeholder="Card Number"
+                      label="Card Number"
+                      onChange={(e) =>
+                        formik.setFieldValue("number", e.target.value)
+                      }
+                      value={formik.values.number}
+                      onFocus={() => onFocus("number")}
+                      inputProps={{
+                        id: "cardNumber",
+                        ...secureInputCommonOptions,
+                      }}
+                      error={
+                        formik.touched.number && Boolean(formik.errors.number)
+                      }
+                      helperText={formik.touched.number && formik.errors.number}
+                    />
+                  </Box>
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <Box mx={{ sm: 2 }}>
+                    <TextField
+                      style={{ width: 100 }}
+                      margin="dense"
+                      size="small"
+                      variant="outlined"
+                      type="number"
+                      placeholder="CVC"
+                      label="CVC"
+                      onChange={(e) =>
+                        formik.setFieldValue("cvc", e.target.value)
+                      }
+                      value={formik.values.cvc}
+                      onFocus={() => onFocus("cvc")}
+                      inputProps={{
+                        id: "securityCode",
+                        ...secureInputCommonOptions,
+                      }}
+                      error={formik.touched.cvc && Boolean(formik.errors.cvc)}
+                      helperText={formik.touched.cvc && formik.errors.cvc}
+                    />
+                  </Box>
+                </Grid>
+              </Grid>
+
               <Box style={{ display: "none" }}>
                 <FormControl>
                   <Select native id="issuer"></Select>
@@ -391,8 +415,8 @@ const Pay = ({ title, transaction_amount }) => {
               </Box>
             </Box>
 
-            <Box display="flex" flexDirection="row">
-              <Box>
+            <Box display="flex" flexDirection="row" flexWrap="wrap">
+              <Box mr={{ xs: 1 }}>
                 <TextField
                   className={classes.expireStyle}
                   margin="dense"
@@ -419,33 +443,38 @@ const Pay = ({ title, transaction_amount }) => {
                   }
                 />
               </Box>
-              <Box mt={1} mx={1} color="gray">
-                <Typography variant="h4"> / </Typography>
-              </Box>
-              <TextField
-                className={classes.expireStyle}
-                margin="dense"
-                size="small"
-                variant="outlined"
-                placeholder="YY"
-                label="YY"
-                onChange={(e) =>
-                  formik.setFieldValue("expireYear", e.target.value)
-                }
-                value={formik.values.expireYear}
-                onFocus={() => onFocus("expire")}
-                inputProps={{
-                  id: "cardExpirationYear",
-                  maxLength: 2,
-                  ...secureInputCommonOptions,
-                }}
-                error={
-                  formik.touched.expireYear && Boolean(formik.errors.expireYear)
-                }
-                helperText={
-                  formik.touched.expireYear && formik.errors.expireYear
-                }
-              />
+              <Hidden xsDown>
+                <Box mt={1} mx={1} color="gray">
+                  <Typography variant="h4"> / </Typography>
+                </Box>
+              </Hidden>
+              <Grid item xs={12} sm={2}>
+                <TextField
+                  className={classes.expireStyle}
+                  margin="dense"
+                  size="small"
+                  variant="outlined"
+                  placeholder="YY"
+                  label="YY"
+                  onChange={(e) =>
+                    formik.setFieldValue("expireYear", e.target.value)
+                  }
+                  value={formik.values.expireYear}
+                  onFocus={() => onFocus("expire")}
+                  inputProps={{
+                    id: "cardExpirationYear",
+                    maxLength: 2,
+                    ...secureInputCommonOptions,
+                  }}
+                  error={
+                    formik.touched.expireYear &&
+                    Boolean(formik.errors.expireYear)
+                  }
+                  helperText={
+                    formik.touched.expireYear && formik.errors.expireYear
+                  }
+                />
+              </Grid>
             </Box>
 
             <Box my={2}>
@@ -475,7 +504,7 @@ const Pay = ({ title, transaction_amount }) => {
                 id="submit"
                 onClick={() => formik.submitForm()}
               >
-                { paidout  ? 'Congrulations product pai out' : 'Pay'}
+                {paidout ? "Congrulations product pai out" : "Pay"}
               </Button>
               <Box my={2}>
                 <Button

@@ -23,10 +23,10 @@ export default class PaymentForm extends React.Component {
         </Head>
         <Grid container spacing={2}>
           {/* Credict card */}
-          <Grid xs={6} item>
+          <Grid xs={12} md={6} item>
             <Paper>
               <Box pt={2}>
-                <Typography variant="h3" component="h1" align="center">
+                <Typography  variant="h3" component="h1" align="center">
                   Mercado pago - Demo
                 </Typography>
               </Box>
@@ -38,17 +38,17 @@ export default class PaymentForm extends React.Component {
                   following credentials:
                 </Typography>
                 <Typography>
-                  <strong>User:</strong>test_user_88984968@testuser.com
+                  <strong>User: </strong>test_user_88984968@testuser.com
                 </Typography>
                 <Typography>
-                  <strong>Password:</strong>qatest7536
+                  <strong>Password: </strong>qatest7536
                 </Typography>
 
                 <Typography variant="body2" >
                   This credit card is a test one, it does not have any type of
                   charge.
                 </Typography>
-                <Box color="gray">
+                <Box color="gray"  >
                   <Typography variant="body1">
                     To make the payment with a card you can use the following
                     test card with any name:
@@ -67,7 +67,7 @@ export default class PaymentForm extends React.Component {
             </Paper>
           </Grid>
           {/* Introduction */}
-          <Grid xs={6} item>
+          <Grid xs={12} md={6}  item>
             <Paper>
               <Box p={1}>
                 <Image
