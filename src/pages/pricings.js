@@ -188,7 +188,8 @@ export default function Pricing() {
                     <NextLink
                       href={{
                         pathname: "/payments/pay",
-                        query: { title: tier.title },
+                        query: { title: tier.title,
+                          transaction_amount: tier.price },
                       }}
                     >
                       <Button

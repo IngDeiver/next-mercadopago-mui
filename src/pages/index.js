@@ -44,19 +44,6 @@ export default class PaymentForm extends React.Component {
                   <strong>Password:</strong>qatest7536
                 </Typography>
               </Box>
-              <Box color="gray" m={2} pb={2}>
-                <Typography variant="body1">
-                To make the payment with a card you can use the following test card:
-                </Typography>
-                <Typography>
-                  <strong>Credict card number: </strong>4013540682746260
-                </Typography>
-                <Typography>
-                  <strong>CVC: </strong>123
-                </Typography><Typography>
-                  <strong>Expire: </strong>11/25
-                </Typography>
-              </Box>
             </Paper>
           </Grid>
           {/* Introduction */}
