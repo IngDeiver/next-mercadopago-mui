@@ -5,15 +5,7 @@ mercadopago.configurations.setAccessToken(
 
 export default (req, res) => {
   if (req.method === "POST") {
-    const payment_data = {
-      transaction_amount: Number(req.body.transactionAmount),
-      token: req.body.token,
-      description: req.body.description,
-      installments: Number(req.body.installments),
-      payment_method_id: req.body.paymentMethodId,
-      issuer_id: req.body.issuer,
-      payer: req.body.payer,
-    };
+    const payment_data = req.body
 
     mercadopago.payment
       .save(payment_data)

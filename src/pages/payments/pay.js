@@ -113,9 +113,9 @@ const Pay = ({ title, transaction_amount }) => {
 
     const body = {
       token,
-      issuer: issuerId,
-      paymentMethodId,
-      transactionAmount: Number(amount),
+      issuer_id: issuerId,
+      payment_method_id:String(paymentMethodId),
+      transaction_amount: Number(amount),
       installments: Number(installments),
       description: `Pay ${title}`,
       payer: {
@@ -468,14 +468,14 @@ const Pay = ({ title, transaction_amount }) => {
             </Box>
             <Box display="flex" flexDirection="column" mt={2}>
               <Button
-                disabled={isSubmiting}
+                disabled={isSubmiting || paidout}
                 variant="contained"
                 color="primary"
                 type="submit"
                 id="submit"
                 onClick={() => formik.submitForm()}
               >
-                { paidout  ? 'Pai out' : 'Pay'}
+                { paidout  ? 'Congrulations product pai out' : 'Pay'}
               </Button>
               <Box my={2}>
                 <Button
