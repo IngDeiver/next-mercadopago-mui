@@ -13,7 +13,6 @@ import Container from "@material-ui/core/Container";
 import Head from "next/head";
 import axios from "axios";
 import NextLink from "next/link";
-import { Link } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   "@global": {
@@ -55,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
 const tiers = [
   {
     title: "Payment link",
-    price: "100",
+    price: "2000",
     description: [
       "Starting to collect through social networks, e-mail or your website is very easy.",
     ],
@@ -77,6 +76,15 @@ const tiers = [
     price: "5000",
     description: [
       "Use our APIs to build your own payment experience on your website or mobile app.",
+    ],
+    buttonText: "Pay",
+    buttonVariant: "outlined",
+  },
+  {
+    title: "Web Tokenize CheckoutPI",
+    price: "3500",
+    description: [
+      "With Mercado Pago's Web Tokenize Checkout, forget about the complexity of assembling your form for selecting payment methods and tokenization. This simple integration provides you with a front-end and layout-ready form.",
     ],
     buttonText: "Pay",
     buttonVariant: "outlined",
@@ -170,6 +178,18 @@ export default function Pricing() {
                   </ul>
                 </CardContent>
                 <CardActions>
+
+                {tier.title === tiers[0].title && (
+                    <Button
+                      fullWidth
+                      variant={tier.buttonVariant}
+                      color="primary"
+                      href="https://mpago.li/1mEscny"
+                    >
+                      {tier.buttonText}
+                    </Button>
+                  )}
+
                   {tier.title === tiers[1].title && (
                     <Button
                       disabled={pendingTransaction}

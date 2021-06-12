@@ -30,7 +30,7 @@ export default class PaymentForm extends React.Component {
                   Mercado pago - Demo
                 </Typography>
               </Box>
-              <Box color="gray" m={2} >
+              <Box color="gray" m={2} pb={5.5}>
                 <Typography variant="body1">
                   Payment market implementation with next.js and ui material,
                   the data on this page is for testing purposes only. If you
@@ -43,6 +43,26 @@ export default class PaymentForm extends React.Component {
                 <Typography>
                   <strong>Password:</strong>qatest7536
                 </Typography>
+
+                <Typography variant="body2" >
+                  This credit card is a test one, it does not have any type of
+                  charge.
+                </Typography>
+                <Box color="gray">
+                  <Typography variant="body1">
+                    To make the payment with a card you can use the following
+                    test card with any name:
+                  </Typography>
+                  <Typography>
+                    <strong>Credict card number: </strong>4013540682746260
+                  </Typography>
+                  <Typography>
+                    <strong>CVC: </strong>123
+                  </Typography>
+                  <Typography>
+                    <strong>Expire: </strong>11/25
+                  </Typography>
+                </Box>
               </Box>
             </Paper>
           </Grid>
