@@ -228,17 +228,19 @@ const Pay = ({ title, transaction_amount }) => {
         </Head>
         <Box m={5} p={3}>
           <Grid container spacing={1}>
-            <Grid item sm={12} md={6}>
-              <Box mb={2}>
-                <Cards
-                  cvc={formik.values.cvc}
-                  expiry={`${formik.values.expireMounth}/${formik.values.expireYear}`}
-                  name={formik.values.name}
-                  number={formik.values.number}
-                  focused={focus}
-                />
-              </Box>
-            </Grid>
+            <Hidden xsDown>
+              <Grid item sm={12} md={6}>
+                <Box mb={2}>
+                  <Cards
+                    cvc={formik.values.cvc}
+                    expiry={`${formik.values.expireMounth}/${formik.values.expireYear}`}
+                    name={formik.values.name}
+                    number={formik.values.number}
+                    focused={focus}
+                  />
+                </Box>
+              </Grid>
+            </Hidden>
             <Grid item sm={12} md={6}>
               <Typography variant="subtitle1">
                 <strong>Product: </strong>
