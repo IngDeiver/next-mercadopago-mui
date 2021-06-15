@@ -17,9 +17,9 @@ export default (req, res) => {
 			  quantity: 1,
       }],
       back_urls:{
-        success:"http://localhost:3000?payment=success",
-        failure:"http://localhost:3000?payment=failure",
-        pending:"http://localhost:3000?payment=pending"
+        success:"https://payments-psi.vercel.app",
+        failure:"https://payments-psi.vercel.app",
+        pending:"https://payments-psi.vercel.app"
       },
       auto_return: "all"
     };

@@ -80,15 +80,6 @@ const tiers = [
     buttonText: "Pay",
     buttonVariant: "outlined",
   },
-  {
-    title: "Web Tokenize CheckoutPI",
-    price: "3500",
-    description: [
-      "With Mercado Pago's Web Tokenize Checkout, forget about the complexity of assembling your form for selecting payment methods and tokenization. This simple integration provides you with a front-end and layout-ready form.",
-    ],
-    buttonText: "Pay",
-    buttonVariant: "outlined",
-  },
 ];
 
 export default function Pricing() {
