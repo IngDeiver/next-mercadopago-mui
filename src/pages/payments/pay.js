@@ -76,7 +76,7 @@ const Pay = ({ title, transaction_amount }) => {
   const formik = useFormik({
     initialValues: {
       name: "",
-      email: "",
+      email: "email@example.com",
       cvc: "",
       expireMounth: "",
       expireYear: "",

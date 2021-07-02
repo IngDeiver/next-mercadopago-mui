@@ -43,6 +43,9 @@ export default class PaymentForm extends React.Component {
                 <Typography>
                   <strong>Password: </strong>qatest7536
                 </Typography>
+                <Typography>
+                  <strong>Email: </strong>email@example.com
+                </Typography>
 
                 <Typography variant="body2" >
                   This credit card is a test one, it does not have any type of
