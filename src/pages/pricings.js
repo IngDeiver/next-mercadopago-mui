@@ -175,7 +175,7 @@ export default function Pricing() {
                       fullWidth
                       variant={tier.buttonVariant}
                       color="primary"
-                      href="https://mpago.li/1mEscny"
+                      href="https://mpago.li/2snV1zQ"
                     >
                       {tier.buttonText}
                     </Button>

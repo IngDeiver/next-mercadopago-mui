@@ -44,7 +44,7 @@ export default class PaymentForm extends React.Component {
                   <strong>Password: </strong>qatest7536
                 </Typography>
                 <Typography>
-                  <strong>Email: </strong>email@example.com
+                  <strong>Email: </strong>email@example.com, for Checkout PRO use a random email
                 </Typography>
 
                 <Typography variant="body2" >
