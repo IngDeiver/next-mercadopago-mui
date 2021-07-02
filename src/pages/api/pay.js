@@ -17,9 +17,9 @@ export default (req, res) => {
 			  quantity: 1,
       }],
       back_urls:{
-        success:"https://payments-psi.vercel.app",
-        failure:"https://payments-psi.vercel.app",
-        pending:"https://payments-psi.vercel.app"
+        success:"https://pagos-ingdeiver.vercel.app",
+        failure:"https://pagos-ingdeiver.vercel.app",
+        pending:"https://pagos-ingdeiver.vercel.app"
       },
       auto_return: "all"
     };
